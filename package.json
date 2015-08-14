@@ -18,6 +18,7 @@
   "homepage": "https://github.com/bhberson/InspiroBotSlack#readme",
   "dependencies": {
     "body-parser": "^1.13.3",
-    "express": "^4.13.3"
+    "express": "^4.13.3",
+    "request": "^2.60.0"
   }
 }
