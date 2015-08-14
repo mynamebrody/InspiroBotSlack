@@ -1,0 +1,23 @@
+{
+  "name": "inspirobotslack",
+  "version": "1.0.0",
+  "description": "Slack integration with InspiroBot.me",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bhberson@github.com/bhberson/InspiroBotSlack.git"
+  },
+  "author": "Brody Berson",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/bhberson/InspiroBotSlack/issues"
+  },
+  "homepage": "https://github.com/bhberson/InspiroBotSlack#readme",
+  "dependencies": {
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3"
+  }
+}
