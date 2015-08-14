@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var generate = require('./generate');
+var outgoing = require('./outgoing');
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -21,4 +21,4 @@ app.listen(port, function () {
   console.log('Slack bot listening on port ' + port);
 });
 
-app.post('/inspirobot', generate);
+app.post('/inspirobot', outgoing);
