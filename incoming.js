@@ -12,9 +12,11 @@ module.exports = function (req, res, next) {
       send(botPayload, function (error, status, body) {
         if (error) {
           return next(error);
+        } else if (status !== 200) {
+          // inform user that our Incoming WebHook failed
+          return next(new Error('Incoming WebHook: ' + status + ' ' + body));
         } else {
-          botPayload.text = errimage;
-          return res.status(200).json(botPayload);
+          return res.status(200).end();
         }
       });
     }
