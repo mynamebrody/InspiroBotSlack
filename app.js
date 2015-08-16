@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var outgoing = require('./outgoing');
+var incoming = require('./incoming');
 
 var app = express();
 var port = process.env.PORT || 3000;
@@ -22,3 +23,4 @@ app.listen(port, function () {
 });
 
 app.post('/inspirobot', outgoing);
+app.post('/slash', incoming);
