@@ -7,7 +7,7 @@ module.exports = function (req, res, next) {
       channel : req.body.channel_id
     };
     if (!error && response.statusCode == 200) {
-      botPayload.text = req.body.user_name + " " + req.body.command + " " + body;
+      botPayload.text = "@" + req.body.user_name + ": " + req.body.command + " " + body;
       // send Payload
       send(botPayload, function (error, status, body) {
         if (error) {
