@@ -1,3 +1,4 @@
+![ImnspiroBot](http://i.imgur.com/uPh4T8d.png)
 # InspiroBotSlack
 Slack integration with InspiroBot.me
 
