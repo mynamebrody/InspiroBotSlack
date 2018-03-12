@@ -7,9 +7,10 @@ module.exports = function (req, res, next) {
       channel : req.body.channel_id
     };
     if (!error && response.statusCode == 200) {
-      botPayload.text = "@" + req.body.user_name + ": " + req.body.command + " " + body;
+      botPayload.response_type = "in_channel";
+      botPayload.text = "<@" + req.body.user_id + ">: " + req.body.command + " " + body;
       // send Payload
-      send(botPayload, function (error, status, body) {
+      send(botPayload, req.body.response_url, function (error, status, body) {
         if (error) {
           return next(error);
         } else if (status !== 200) {
@@ -21,25 +22,22 @@ module.exports = function (req, res, next) {
       });
     }
     else {
-      botPayload.text = errimage;
+        botPayload.response_type = "ephemeral";
+        botPayload.text = errimage;
       return res.status(200).json(botPayload);
     }
   });
-}
+};
 
-function send (payload, callback) {
-  var path = process.env.INCOMING_WEBHOOK_PATH;
-  var uri = 'https://hooks.slack.com/services' + path;
-
+function send (payload, responseUrl, callback) {
   request({
-    uri: uri,
+    uri: responseUrl,
     method: 'POST',
     body: JSON.stringify(payload)
   }, function (error, response, body) {
     if (error) {
       return callback(error);
     }
-
     callback(null, response.statusCode, body);
   });
 }
